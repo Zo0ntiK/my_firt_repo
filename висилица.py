@@ -4,7 +4,6 @@ def welcom_speech(t):
     output:return None,used as just built-in function print()
     
     '''
-
     return t
 
 def get_word(w):
@@ -31,7 +30,10 @@ def list_to_string_convert(t):
     input: t- template (list)
     outputi s- list converted to string
     '''
-    pass
+    string = ''
+    for i in t:
+        string += i
+    return string
     
 def game():
     progress = True
