@@ -27,7 +27,7 @@ def start_template(w):
     '''
     how_many = len(w)
     t=[]
-    for i in range(how_many+1):
+    for i in range(how_many):
         t.append('_')
     return t
         
@@ -72,17 +72,29 @@ def build_template(t,w,g=''):
                  t[i] = w[i]
     return t
         
-def game():
+def game(s):
     progress = True
     word = ['orange']
     lifes = 3
-
+    
     word_in_play = get_word(word)
-    template = star_template(word_in_play)
-    welcom_speech(list_to_string_conwert(tempale))
+    template = start_template(word_in_play)
+    welcom_speech(list_to_string_convert(template))
 
     while progress:
         user_guess = user_input()
         template = build_template(template,word_in_play,user_guess)
+        print(list_to_string_convert_v2(template))
+        if user_guess not in list_to_string_convert(word):
+            lifes -= 1
+        if lifes == 0:
+            return'ты проигал'
+            
+        if template == list('orange') :
+            return'ты победил'
+        
+            
+       
+print(game(''))       
 
     
